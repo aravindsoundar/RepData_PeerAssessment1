@@ -1,0 +1,14 @@
+Loading and Processing the data
+
+we will check if the file existor not and then load the dataset
+
+```{r}
+library(dplyr)
+if(!file.exists("./data")){dir.create("./data")}
+fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+download.file(fileUrl,destfile="./data/activity.zip",method="curl")
+
+unzip(zipfile="./data/activity.zip",exdir="./data")
+activity <- read.csv("./data/activity.csv")
+activity
+```
